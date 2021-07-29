@@ -2,13 +2,13 @@ version: '3'
 
 services:
   keycloak:
-    image: jboss/keycloak:latest
+    image: quay.io/keycloak/keycloak
     command: -Dkeycloak.profile.feature.upload_scripts=enabled
     environment:
       KEYCLOAK_IMPORT: /tmp/gocloak-realm.json
       KEYCLOAK_USER: admin
       KEYCLOAK_PASSWORD: secret
     ports:
-      - "8080:8080"
+      - "9080:8080"
     volumes:
       -  ./testdata/gocloak-realm.json:/tmp/gocloak-realm.json
